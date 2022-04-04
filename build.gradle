@@ -1,0 +1,33 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.projects'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//Json :  https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+	//Rest Template : https://mvnrepository.com/artifact/org.springframework/spring-web
+	implementation group: 'org.springframework', name: 'spring-web', version: '3.0.2.RELEASE'
+
+	// https://mvnrepository.com/artifact/com.twilio.sdk/twilio
+	runtimeOnly group: 'com.twilio.sdk', name: 'twilio', version: '8.28.0'
+	implementation 'io.github.cdimascio:dotenv-java:2.2.3'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+
