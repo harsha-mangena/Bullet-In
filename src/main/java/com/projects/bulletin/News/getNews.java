@@ -1,5 +1,6 @@
 package com.projects.bulletin.News;
 
+import java.nio.file.Files;
 import java.util.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -71,7 +72,7 @@ public class getNews implements IgetNews
     public void writeNews() throws JsonParseException, JsonMappingException, IOException {
         ArrayList<Article> currentUpdates = getTheNews();
         //Writing into File
-        BufferedWriter writer = new BufferedWriter(new FileWriter("Updates.txt"));
+        BufferedWriter writer = Files.newBufferedWriter("Updates.txt".toPath());
         
         for(Article a : currentUpdates)
         {
