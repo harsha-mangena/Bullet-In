@@ -1,5 +1,6 @@
 package com.projects.bulletin.SMSService;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -23,7 +24,7 @@ public class SendSms  implements ISendSms{
         try
         {
             String line;
-            while ((line=br.readLine()) != null)
+            while ((line=BoundedLineReader.readLine(br, 5_000_000)) != null)
             {
                 update.append(line + "\n");
             }
@@ -54,7 +55,7 @@ public class SendSms  implements ISendSms{
         try
         {
             String line;
-            while ((line=br.readLine()) != null)
+            while ((line=BoundedLineReader.readLine(br, 5_000_000)) != null)
             {
                 numbers.add(line.toString());
             }
